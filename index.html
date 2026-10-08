@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="es">
+   
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+
+    <title>Recursividad y sus aplicaciones</title>
+
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+     <div class="portada-canva">
+    <img
+        src="portada.jpg"
+        alt="Portada del trabajo Recursividad y sus aplicaciones">
+</div>
+    <header>
+        <nav aria-label="Menú principal">
+            <a class="logo" href="#inicio">Recursividad</a>
+
+            <div class="enlaces">
+                <a href="#teoria">Teoría</a>
+                <a href="#aplicaciones">Aplicaciones</a>
+                <a href="#complejidad">Complejidad</a>
+                <a href="#ejemplos">Ejemplos</a>
+                <a href="#conclusion">Conclusión</a>
+                <a href="#referencias">Referencias</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="portada">
+            <div>
+                <span class="etiqueta">Algoritmos y programación</span>
+
+                <h1>Recursividad y sus aplicaciones</h1>
+
+                <p>
+                    La recursividad es una técnica de programación que permite
+                    resolver un problema a partir de versiones más pequeñas
+                    del mismo. Su importancia en las ciencias computacionales
+                    radica en que facilita la construcción de algoritmos para
+                    realizar cálculos, explorar estructuras de datos y generar
+                    figuras mediante patrones repetidos.
+                </p>
+
+                <p>
+                    En este sitio web explicamos qué es la recursividad,
+                    cuáles son sus características y cómo funcionan los
+                    procedimientos recursivos. También analizamos su
+                    complejidad computacional para comprender cómo influye
+                    en el tiempo de ejecución y el uso de memoria.
+                </p>
+
+                <p>
+                    Mediante ejemplos interactivos de factorial, Fibonacci,
+                    Torres de Hanói y fractales, buscamos mostrar de forma
+                    clara y visual cómo se desarrolla un proceso recursivo.
+                    Nuestro objetivo es relacionar los conceptos con la
+                    práctica y facilitar la comprensión de esta técnica
+                    y sus aplicaciones.
+                </p>
+
+                
+            </div>
+        </section>
+        <section >
+
+            <h2>¿Qué es la recursividad?</h2>
+
+          
+            <p>
+                Un aspecto por demás interesante que representa el
+                comportamiento de diferentes y variados fenómenos es
+                la recursividad. La recursividad puede definirse como
+                el proceso por el cual una función se llama a sí misma
+                para resolver un problema, este concepto puede verse
+                como un proceso que puede repetirse hasta el infinito
+                si no es detenido en un nivel recursivo definido.
+                Ciertos problemas grandes, tienen la característica
+                de que pueden ser representados como la descomposición
+                de problemas más pequeñas, siendo estos problemas
+                pequeños una réplica del problema principal.
+                Algunos problemas matemáticos que pueden ser resueltos
+                por este tipo de métodos son los factoriales, la serie
+                de Fibonacci, las torres de Hanoi, y los fractales,
+                entre otros.
+            </p>
+            <p>
+                Para comprender la recursividad, es importante distinguir
+                entre el problema original y los subproblemas que se generan.
+                Un subproblema conserva la misma forma de solución,
+                pero trabaja con datos más pequeños o sencillos.
+                Por ejemplo, calcular el factorial de 5 y calcular
+                el factorial de 4 requieren el mismo procedimiento;
+                lo que cambia es el valor con el que comienza
+                cada cálculo.
+            </p>
+
+            <p>
+                Cuando una función se llama a sí misma, la ejecución
+                anterior no desaparece. Cada llamada conserva sus
+                propios parámetros, variables locales y operaciones
+                pendientes. Cuando la llamada más pequeña termina,
+                su resultado permite continuar la anterior.
+                Así se construye la solución del problema inicial.
+            </p>
+
+            <p>
+                Para precisar la descripción anterior del copo de Koch,
+                su construcción no consiste en superponer indefinidamente
+                triángulos del mismo tamaño. El procedimiento consiste
+                en dividir cada segmento en tres partes iguales y
+                sustituir el tercio central por dos segmentos que
+                forman un pico hacia afuera. Esta transformación
+                se repite sobre los segmentos nuevos, cada vez
+                más pequeños. En una computadora se utiliza
+                una cantidad finita de etapas. En la imagen 1, podemos ver la representación
+                del fractal llamado “El copo de nieve de Koch”,
+                como podemos visualizar, la generación del copo
+                parte de un triángulo, al que se le superpone otro
+                triangulo invertido, a cada nuevo triangulo se le
+                superpone nuevamente un triángulo de su mismo tamaño,
+                generando una superposición infinita en un proceso
+                netamente recursivo.
+            </p>
+
+            <div class="aviso">
+                <img
+                    src="img1.jpg"
+                    alt="Representación del copo de nieve de Koch">
+                      <p>
+                    <strong>Fig. 1.</strong>
+                     El copo de nieve de Koch, fractal de generación recursiva.
+                </p>
+                    
+            </div>
+
+            <h3>Características de la recursividad</h3>
+
+            <div class="tarjetas">
+
+                <article class="tarjeta">
+                    <span class="numero">01</span>
+
+                    <h3>Caso base</h3>
+
+                    <p>
+                        Es la condición que resuelve el problema
+                        sin realizar otra llamada recursiva.
+                        Por ejemplo, factorial(0) devuelve 1.
+                        Permite detener el proceso.
+                    </p>
+
+                    <p>
+                        El caso base no es solamente una instrucción
+                        para detenerse: debe proporcionar una solución
+                        válida para la situación más sencilla.
+                        En el factorial, devolver 1 cuando n vale 0
+                        permite que las multiplicaciones pendientes
+                        se completen correctamente.
+                    </p>
+
+                    <p>
+                        Algunas funciones necesitan más de un caso
+                        base, como Fibonacci, que define directamente
+                        los valores F(0) y F(1).
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <span class="numero">02</span>
+
+                    <h3>Llamada recursiva</h3>
+
+                    <p>
+                        La función vuelve a ejecutarse con datos
+                        que representan un problema más pequeño.
+                        Por ejemplo, factorial(n) llama a
+                        factorial(n − 1).
+                    </p>
+
+                    <p>
+                        La llamada conserva el procedimiento,
+                        pero cambia los datos. En factorial(n),
+                        factorial(n − 1) obtiene la solución
+                        del subproblema y después se multiplica
+                        por n. Por eso, una función puede tener
+                        trabajo pendiente después de llamarse.
+                    </p>
+
+                    <p>
+                        Otras soluciones realizan varias llamadas,
+                        como Fibonacci, que necesita los resultados
+                        de dos términos anteriores.
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <span class="numero">03</span>
+
+                    <h3>Avance hacia el caso base</h3>
+
+                    <p>
+                        Cada llamada debe acercarse a la condición
+                        de parada. Si los datos no cambian
+                        correctamente, el caso base puede no
+                        alcanzarse y la pila de llamadas puede
+                        agotarse.
+                    </p>
+
+                    <p>
+                        Esta reducción puede ser un número menor,
+                        menos elementos por procesar o una profundidad
+                        de dibujo más pequeña.
+                    </p>
+
+                    <p>
+                        Si una función se detiene en 0, pero
+                        comienza en 3 y aumenta su valor en
+                        cada llamada, nunca alcanzará el caso base.
+                        Por ello también es necesario validar
+                        los datos de entrada.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+        <section id="aplicaciones">
+            <h2>Procedimientos recursivos y aplicaciones</h2>
+
+            <div class="dos-columnas">
+
+                <article class="tarjeta">
+                    <h3>¿Cómo funcionan?</h3>
+
+                    <p>
+                        Un procedimiento recursivo recibe datos,
+                        comprueba el caso base y, si este no se cumple,
+                        se llama con un problema más pequeño.
+                        Al terminar una llamada, continúa la anterior.
+                        Puede devolver un valor o ejecutar acciones,
+                        como mover discos. Cada llamada activa
+                        conserva sus datos en la pila de llamadas.
+                    </p>
+
+                    <p>
+                        La ejecución puede comprenderse en dos
+                        momentos. Primero, las llamadas reducen
+                        el problema hasta alcanzar el caso base.
+                        Después, al terminar cada llamada, el programa
+                        regresa a la anterior y completa lo que
+                        había quedado pendiente.
+                    </p>
+
+                    <p>
+                        Por ejemplo, factorial(3) necesita conocer
+                        factorial(2). Esta llamada necesita
+                        factorial(1), que a su vez necesita
+                        factorial(0). Al llegar a 0, se devuelve 1.
+                        Después, factorial(1) obtiene 1,
+                        factorial(2) obtiene 2 y factorial(3)
+                        obtiene 6.
+                    </p>
+
+                    <p>
+                        La pila de llamadas organiza este proceso.
+                        Cada llamada activa conserva la información
+                        necesaria para continuar, y la última
+                        en entrar es la primera en terminar.
+                    </p>
+
+                    <pre><code>function cuentaRegresiva(n) {
+    if (n === 0) {
+        return; // Caso base
+    }
+
+    console.log(n);
+
+    // Reduce el problema.
+    cuentaRegresiva(n - 1);
+}</code></pre>
+
+                    <p>
+                        Si ejecutamos cuentaRegresiva(3), se muestran
+                        3, 2 y 1. Al llegar a 0, la función termina.
+                        Este ejemplo supone que n es un entero
+                        no negativo.
+                    </p>
+
+                    <p>
+                        No todas las funciones recursivas realizan
+                        operaciones al regresar. Esta cuenta
+                        regresiva muestra el número antes de
+                        llamar nuevamente a la función.
+                        En cambio, el factorial completa
+                        la multiplicación cuando recibe el
+                        resultado de la llamada menor.
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <h3>¿Dónde se utilizan?</h3>
+
+                    <p>
+                        La recursividad es útil cuando un problema
+                        o una estructura repite su organización
+                        en partes más pequeñas.
+                    </p>
+
+                    <ul>
+                        <li>
+                            <strong>Carpetas y árboles:</strong>
+                            recorrer sus elementos y aplicar
+                            el mismo procedimiento a sus
+                            subestructuras.
+                        </li>
+                        <li>
+                            <strong>Cálculos y combinaciones:</strong>
+                            calcular factoriales, sucesiones
+                            y explorar diferentes posibilidades.
+                        </li>
+                        <li>
+                            <strong>Laberintos y gráficos:</strong>
+                            explorar caminos y construir
+                            patrones fractales.
+                        </li>
+                    </ul>
+
+                    <p>
+                        Un ejemplo cercano es la organización
+                        de archivos. Una carpeta puede contener
+                        documentos y otras carpetas. Para revisar
+                        su contenido, se aplica el mismo
+                        procedimiento a cada subcarpeta hasta
+                        llegar a elementos que ya no contienen
+                        otras carpetas. Esta estructura jerárquica
+                        hace que una solución recursiva
+                        resulte natural.
+                    </p>
+
+                    <p>
+                        También puede utilizarse para explorar
+                        posibilidades. Un algoritmo toma una
+                        decisión, continúa resolviendo el problema
+                        restante y después considera otras
+                        alternativas. Esta organización permite
+                        construir combinaciones o examinar
+                        caminos.
+                    </p>
+
+                    <p>
+                        Su eficiencia depende de cuántas
+                        posibilidades debe explorar y de
+                        si repite subproblemas que ya había
+                        resuelto. Por eso, una solución
+                        recursiva debe analizarse además
+                        de comprobar que produzca
+                        el resultado correcto.
+                    </p>
+
+                    <p>
+                        La recursividad y la iteración son
+                        formas diferentes de organizar una
+                        repetición. La iteración utiliza ciclos,
+                        como for o while; la recursividad
+                        utiliza llamadas. Ninguna es siempre
+                        mejor: la elección depende de la
+                        claridad y los recursos necesarios.
+                    </p>
+                    <img
+                    src="carpeta.jpg">
+                </article>
+
+            </div>
+        </section>
+        <section id="complejidad">
+            <h2>Complejidad computacional</h2>
+
+            <p>
+                La complejidad computacional describe cómo
+                crecen los recursos necesarios al aumentar
+                el tamaño del problema. La complejidad de
+                tiempo estudia la cantidad de operaciones;
+                la de espacio, la memoria utilizada.
+                O(n) indica una cota lineal y O(2ⁿ),
+                una cota exponencial; no son cantidades
+                exactas de segundos.
+            </p>
+
+            <p>
+                Para analizar una solución recursiva debemos
+                considerar el trabajo de cada llamada y
+                la cantidad de llamadas que se realizan.
+                Si cada ejecución hace poco trabajo, pero
+                genera muchas otras ejecuciones, el costo
+                total puede crecer rápidamente.
+                Contar únicamente las instrucciones escritas
+                en la función no permite conocer su complejidad.
+            </p>
+
+            <p>
+                También es necesario distinguir el total
+                de llamadas de la profundidad máxima.
+                El total indica cuántas ejecuciones ocurren
+                durante todo el cálculo. La profundidad
+                indica cuántas permanecen activas
+                al mismo tiempo.
+            </p>
+
+            <p>
+                Fibonacci realiza muchos cálculos, pero
+                no conserva todo su árbol de llamadas
+                simultáneamente en la pila. Por eso
+                su tiempo puede crecer exponencialmente
+                mientras la memoria de la pila crece
+                linealmente.
+            </p>
+
+            <div class="tabla-contenedor">
+                <table>
+                    <caption>
+                        Comparación de las versiones
+                        de los algoritmos utilizadas
+                    </caption>
+
+                    <thead>
+                        <tr>
+                            <th scope="col">Algoritmo y versión</th>
+                            <th scope="col">Tiempo</th>
+                            <th scope="col">Memoria auxiliar</th>
+                            <th scope="col">Explicación</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Factorial recursivo</td>
+                            <td>O(n)</td>
+                            <td>O(n)</td>
+                            <td>
+                                Una llamada por reducción de n;
+                                la pila conserva operaciones
+                                pendientes.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Fibonacci recursivo sin memoización</td>
+                            <td>O(2ⁿ), cota superior</td>
+                            <td>O(n)</td>
+                            <td>
+                                Repite subproblemas; la profundidad
+                                máxima crece linealmente.
+                                El análisis corresponde a calcular F(n).
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Torres de Hanói</td>
+                            <td>O(2ⁿ)</td>
+                            <td>O(n) para la pila</td>
+                            <td>
+                                Genera 2ⁿ − 1 movimientos
+                                con profundidad proporcional a n.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Triángulo de Sierpinski</td>
+                            <td>O(3ᵈ)</td>
+                            <td>O(d) para la pila</td>
+                            <td>
+                                Cada nivel genera tres llamadas.
+                                d es la profundidad seleccionada.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>
+                Las complejidades indicadas suponen operaciones
+                aritméticas de costo constante. Si los números
+                crecen y se representan con una cantidad
+                variable de dígitos, también debe considerarse
+                el costo de operar con ellos.
+            </p>
+
+            <p>
+                La memoria de la pila debe distinguirse del
+                almacenamiento de la interfaz. En nuestra
+                demostración de Hanói se guarda la lista
+                completa de movimientos, lo que requiere
+                espacio adicional proporcional a 2ⁿ.
+                En Sierpinski se conservan los triángulos
+                dibujados, cuya cantidad es 3ᵈ.
+            </p>
+
+            <p>
+                Una forma de mejorar algoritmos que repiten
+                subproblemas es la memoización. Consiste
+                en almacenar un resultado después de
+                calcularlo y reutilizarlo cuando vuelve
+                a necesitarse. En Fibonacci evita resolver
+                varias veces los mismos términos y permite
+                calcular F(n) en tiempo O(n), con memoria
+                O(n), bajo el modelo de operaciones
+                de costo constante.
+            </p>
+
+            <p>
+                Analizar la complejidad permite comprender
+                por qué aumentar ligeramente la entrada
+                puede producir un gran incremento de trabajo
+                en ciertos algoritmos. También ayuda a
+                establecer límites razonables para los
+                ejemplos interactivos.
+            </p>
+        </section>
+
+        <section id="ejemplos">
+            <h2>Ejemplos visuales</h2>
+
+            <p>
+                Los siguientes ejemplos permiten relacionar
+                las explicaciones con el comportamiento
+                de los algoritmos. Ingresa los datos
+                o utiliza los controles para observar
+                los resultados y los procesos recursivos.
+            </p>
+
+            <!-- FACTORIAL -->
+            <article id="factorial" class="ejemplo">
+                <div>
+                    <h3>Factorial</h3>
+
+                    <p>
+                        El factorial de un entero positivo n
+                        es el producto de los números desde
+                        1 hasta n y se escribe n!.
+                        También se define 0! = 1.
+                        Se utiliza en problemas de conteo:
+                        por ejemplo, cinco objetos diferentes
+                        pueden ordenarse de 5! = 120 maneras
+                        [3], [6].
+                    </p>
+
+                    <p>
+                        <strong>Caso base:</strong>
+                        0! = 1.
+                    </p>
+
+                    <p>
+                        <strong>Llamada recursiva:</strong>
+                        n! = n × (n − 1)!, para n > 0.
+                    </p>
+
+                    <pre><code>function factorial(n) {
+    if (n === 0) {
+        return 1; // Caso base
+    }
+
+    return n * factorial(n - 1);
+}</code></pre>
+
+                    <p>
+                        La expresión n × factorial(n - 1)
+                        significa que la multiplicación debe
+                        esperar el resultado de la llamada
+                        recursiva.
+                    </p>
+
+                    <p>
+                        Si calculamos 4!, primero se generan
+                        las llamadas para 4, 3, 2, 1 y 0.
+                        Cuando factorial(0) devuelve 1,
+                        comienzan a resolverse las operaciones:
+                        1 × 1 = 1, 2 × 1 = 2,
+                        3 × 2 = 6 y 4 × 6 = 24.
+                    </p>
+
+                    <p>
+                        El factorial también permite contar
+                        ordenamientos. Si tenemos cuatro
+                        objetos diferentes, existen cuatro
+                        opciones para la primera posición,
+                        tres para la segunda, dos para la
+                        tercera y una para la última.
+                        Por eso hay 4 × 3 × 2 × 1 = 24
+                        ordenamientos posibles.
+                    </p>
+
+                    <p>
+                        Su versión recursiva reduce el valor
+                        de uno en uno, por lo que realiza
+                        una cantidad lineal de llamadas.
+                        La demostración permite observar
+                        tanto la reducción como el regreso
+                        de resultados.
+                    </p>
+
+                    <p>
+                        El programa interactivo utiliza
+                        BigInt para mostrar exactamente
+                        los factoriales del intervalo
+                        permitido y valida que la entrada
+                        sea un entero entre 0 y 20.
+                        El código mostrado arriba explica
+                        la estructura recursiva.
+                    </p>
+                </div>
+
+                <div class="panel">
+                    <label for="numero-factorial">
+                        Número de 0 a 20:
+                    </label>
+
+                    <input
+                        id="numero-factorial"
+                        type="number"
+                        min="0"
+                        max="20"
+                        step="1"
+                        value="5">
+
+                    <button
+                        type="button"
+                        data-demo="resultado-factorial">
+                        Calcular factorial
+                    </button>
+
+                    <div
+                        id="resultado-factorial"
+                        class="resultado"
+                        aria-live="polite">
+                        Aquí aparecerán el resultado y los pasos.
+                    </div>
+                </div>
+            </article>
+
+            <!-- FIBONACCI -->
+            <article id="fibonacci" class="ejemplo">
+                <div>
+                    <h3>Fibonacci</h3>
+
+                    <p>
+                        La sucesión de Fibonacci comienza,
+                        en la convención utilizada aquí,
+                        con 0 y 1. Cada término posterior
+                        es la suma de los dos anteriores:
+                        0, 1, 1, 2, 3, 5, 8, 13…
+                        Por ejemplo, F(5) = F(4) + F(3)
+                        = 3 + 2 = 5.
+                    </p>
+
+                    <p>
+                        <strong>Casos base:</strong>
+                        F(0) = 0 y F(1) = 1.
+                    </p>
+
+                    <p>
+                        <strong>Llamada recursiva:</strong>
+                        F(n) = F(n − 1) + F(n − 2),
+                        para n ≥ 2.
+                    </p>
+
+                    <pre><code>function fibonacci(n) {
+    if (n &lt;= 1) {
+        return n; // Casos base
+    }
+
+    return fibonacci(n - 1)
+         + fibonacci(n - 2);
+}</code></pre>
+
+                    <p>
+                        A diferencia del factorial, esta
+                        función realiza dos llamadas
+                        en cada caso recursivo.
+                        Para obtener F(4), necesita
+                        F(3) y F(2). A su vez, F(3)
+                        también necesita F(2), por lo
+                        que ese término se calcula
+                        nuevamente.
+                    </p>
+
+                    <p>
+                        Usando los casos base F(0) = 0
+                        y F(1) = 1, obtenemos F(2) = 1,
+                        F(3) = 2 y F(4) = 3.
+                        El ejemplo demuestra que cada
+                        resultado depende de dos valores
+                        anteriores.
+                    </p>
+
+                    <p>
+                        Una definición matemática sencilla
+                        puede producir muchas llamadas
+                        cuando se implementa directamente.
+                        La versión básica tiene tiempo
+                        exponencial; O(2ⁿ) es una cota
+                        superior habitual.
+                    </p>
+
+                    <p>
+                        La memoización permite evitar
+                        los cálculos repetidos. Nuestra
+                        demostración utiliza la versión
+                        básica para identificar esas
+                        repeticiones y limita el recorrido
+                        visual a un término pequeño,
+                        como máximo F(5), para mantenerlo
+                        legible.
+                    </p>
+
+                    <p>
+                        Al elegir ocho términos, la salida
+                        es 0, 1, 1, 2, 3, 5, 8 y 13.
+                        La cantidad de términos incluye
+                        el inicial F(0); por eso el último
+                        corresponde a F(7).
+                    </p>
+                </div>
+
+                <div class="panel">
+                    <label for="cantidad-fibonacci">
+                        Cantidad de términos:
+                    </label>
+
+                    <input
+                        id="cantidad-fibonacci"
+                        type="number"
+                        min="1"
+                        max="15"
+                        step="1"
+                        value="8">
+
+                    <button
+                        type="button"
+                        data-demo="resultado-fibonacci">
+                        Mostrar sucesión
+                    </button>
+
+                    <div
+                        id="resultado-fibonacci"
+                        class="resultado"
+                        aria-live="polite">
+                        Aquí aparecerá la representación visual.
+                    </div>
+                </div>
+            </article>
+
+            <article id="hanoi" class="ejemplo">
+                <div>
+                    <h3>Torres de Hanói</h3>
+
+                    <p>
+                        El objetivo es trasladar discos
+                        de diferentes tamaños entre tres
+                        postes. Solo se mueve un disco
+                        a la vez, se toma únicamente
+                        el disco superior y nunca se
+                        coloca uno grande sobre uno
+                        pequeño. Con n discos, el mínimo
+                        es 2ⁿ − 1 movimientos: tres discos
+                        requieren siete.
+                    </p>
+
+                    <p>
+                        <strong>Caso base:</strong>
+                        con un disco, moverlo directamente
+                        al destino.
+                    </p>
+
+                    <p>
+                        <strong>Llamadas recursivas:</strong>
+                        mover n − 1 discos al auxiliar,
+                        mover el mayor al destino y mover
+                        los n − 1 restantes del auxiliar
+                        al destino.
+                    </p>
+
+                    <pre><code>function hanoi(
+    n, origen, auxiliar, destino, movimientos
+) {
+    if (n === 1) {
+        movimientos.push([origen, destino]);
+        return;
+    }
+
+    hanoi(
+        n - 1, origen, destino,
+        auxiliar, movimientos
+    );
+
+    movimientos.push([origen, destino]);
+
+    hanoi(
+        n - 1, auxiliar, origen,
+        destino, movimientos
+    );
+}</code></pre>
+
+                    <p>
+                        La solución funciona porque, antes
+                        de mover el disco mayor, debemos
+                        retirar todos los que tiene encima.
+                        Mover esos discos pequeños constituye
+                        otro problema de Hanói, pero con
+                        un disco menos.
+                    </p>
+
+                    <p>
+                        Después de mover el mayor, se resuelve
+                        nuevamente el problema menor para
+                        colocar los discos restantes sobre
+                        él. Esto explica por qué el algoritmo
+                        realiza dos llamadas recursivas.
+                    </p>
+
+                    <p>
+                        Los postes cambian de función entre
+                        llamadas. El poste que sirve como
+                        destino temporal en una llamada
+                        puede convertirse en origen o auxiliar
+                        en otra. Por eso es importante
+                        observar el orden de los parámetros.
+                    </p>
+
+                    <p>
+                        El número mínimo de movimientos
+                        cumple M(n) = 2M(n − 1) + 1:
+                        se resuelve dos veces el problema
+                        de n − 1 discos y se realiza
+                        un movimiento del mayor.
+                        Su solución es M(n) = 2ⁿ − 1.
+                        Tres discos requieren 7 movimientos,
+                        cuatro requieren 15 y cinco
+                        requieren 31.
+                    </p>
+
+                    <p>
+                        En la demostración, la función
+                        recursiva genera primero la lista
+                        de movimientos. Después, un
+                        temporizador los muestra uno
+                        por uno. La animación permite
+                        revisar la solución, pero el
+                        temporizador no es la parte
+                        recursiva del algoritmo.
+                    </p>
+
+                    <p>
+                        El botón Siguiente paso permite
+                        examinar cada movimiento. Observa
+                        que los discos conservan el orden
+                        permitido y que ningún disco
+                        grande queda sobre uno pequeño.
+                    </p>
+                </div>
+
+                <div class="panel">
+                    <label for="discos">
+                        Cantidad de discos:
+                    </label>
+
+                    <select id="discos">
+                        <option value="3">3 discos</option>
+                        <option value="4">4 discos</option>
+                        <option value="5">5 discos</option>
+                    </select>
+
+                    <button
+                        type="button"
+                        data-demo="resultado-hanoi">
+                        Iniciar demostración
+                    </button>
+
+                    <div
+                        id="resultado-hanoi"
+                        class="resultado"
+                        aria-live="polite">
+                        Aquí se dibujarán las torres y los discos.
+                    </div>
+                </div>
+            </article>
+            <article id="fractales" class="ejemplo">
+                <div>
+                    <h3>Fractales</h3>
+
+                    <p>
+                        Un fractal presenta patrones
+                        repetidos a distintas escalas.
+                        En el triángulo de Sierpinski
+                        se divide un triángulo en cuatro
+                        partes iguales, se deja vacío
+                        el centro y se repite el proceso
+                        en los tres triángulos restantes.
+                        Una mayor profundidad produce
+                        más detalles; el dibujo digital
+                        utiliza una cantidad finita
+                        de niveles.
+                    </p>
+
+                    <p>
+                        <strong>Caso base:</strong>
+                        con profundidad 0, dibujar un
+                        triángulo y detener esa llamada.
+                    </p>
+
+                    <p>
+                        <strong>Llamadas recursivas:</strong>
+                        aplicar el procedimiento a tres
+                        triángulos menores con profundidad
+                        d − 1.
+                    </p>
+
+                    <pre><code>function sierpinski(a, b, c, d) {
+    if (d === 0) {
+        dibujarTriangulo(a, b, c);
+        return;
+    }
+
+    const ab = puntoMedio(a, b);
+    const ac = puntoMedio(a, c);
+    const bc = puntoMedio(b, c);
+
+    sierpinski(a, ab, ac, d - 1);
+    sierpinski(ab, b, bc, d - 1);
+    sierpinski(ac, bc, c, d - 1);
+}</code></pre>
+
+                    <p>
+                        puntoMedio calcula el promedio de
+                        las coordenadas; dibujarTriangulo
+                        traza la figura. Son funciones
+                        auxiliares que se definen en
+                        el programa gráfico.
+                    </p>
+
+                    <p>
+                        Cada llamada recibe tres vértices
+                        y una profundidad. Si la profundidad
+                        es cero, dibuja el triángulo.
+                        En otro caso, calcula los puntos
+                        medios de sus lados y realiza
+                        tres llamadas sobre triángulos
+                        menores.
+                    </p>
+
+                    <p>
+                        Cada punto medio se obtiene
+                        promediando las coordenadas de
+                        dos vértices. Esto permite construir
+                        triángulos cuyos lados miden
+                        la mitad de los del triángulo
+                        anterior. El centro permanece
+                        vacío porque no se realiza
+                        una llamada que lo dibuje.
+                    </p>
+
+                    <p>
+                        La profundidad controla el detalle.
+                        En profundidad 0 se dibuja un
+                        triángulo final; en profundidad 1,
+                        tres; en profundidad 2, nueve;
+                        y en profundidad 3, veintisiete.
+                        La cantidad de triángulos finales
+                        es 3ᵈ, donde d es la profundidad.
+                    </p>
+
+                    <p>
+                        Esta construcción muestra
+                        autosimilitud: las partes
+                        conservan una estructura semejante
+                        al conjunto. La representación
+                        matemática puede continuar
+                        indefinidamente, pero la computadora
+                        utiliza una cantidad finita
+                        de niveles.
+                    </p>
+
+                    <p>
+                        Aumentar la profundidad incrementa
+                        tanto el detalle como las operaciones
+                        y los elementos gráficos.
+                        El deslizador permite observar
+                        esta relación sin cambiar
+                        la regla de construcción.
+                    </p>
+
+                    <p>
+                        El código mostrado explica la
+                        estructura del algoritmo.
+                        La versión ejecutada en script.js
+                        también recibe el elemento SVG
+                        donde se dibujan los triángulos.
+                    </p>
+                </div>
+
+                <div class="panel">
+                    <label for="profundidad">
+                        Profundidad:
+                        <output
+                            id="valor-profundidad"
+                            for="profundidad">3</output>
+                    </label>
+
+                    <input
+                        id="profundidad"
+                        type="range"
+                        min="0"
+                        max="6"
+                        step="1"
+                        value="3">
+
+                    <button
+                        type="button"
+                        data-demo="resultado-fractal">
+                        Dibujar fractal
+                    </button>
+
+                    <div
+                        id="resultado-fractal"
+                        class="resultado"
+                        aria-live="polite">
+                        Aquí aparecerá el dibujo del fractal.
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section id="conclusion">
+
+            <h2>Conclusión</h2>
+
+            <p>
+            Al estudiar la recursividad comprendimos su importancia en
+             las ciencias computacionales, ya que permite resolver problemas
+             cuya estructura se repite en partes más pequeñas. Su utilidad va más
+              allá de los cálculos matemáticos: también facilita recorrer árboles,
+               explorar carpetas, buscar soluciones y generar figuras mediante reglas repetidas.
+                Esto nos permitió reconocer su relación con tareas reales de la programación.
+            </p>
+
+            <p>
+                Como equipo, aprendimos que la recursividad ofrece una manera de
+                 organizar soluciones que pueden resultar difíciles de expresar
+                  mediante un procedimiento único. Comprenderla fortalece nuestra
+                   capacidad para identificar patrones y trabajar con estructuras 
+                   de datos. Sin embargo, utilizarla correctamente requiere
+                    considerar la condición de parada, el tiempo de ejecución y la memoria necesaria.
+            </p>
+            <p>
+                Consideramos que este aprendizaje será
+                útil al trabajar con estructuras de
+                datos y problemas más complejos.
+                Nos permitió valorar la importancia
+                de justificar la condición de parada,
+                revisar los datos de entrada y analizar
+                los recursos utilizados, además de
+                comprobar los resultados.
+            </p>
+
+            <p>
+               Concluimos que la recursividad es una herramienta fundamental
+                en nuestra formación porque amplía las formas en que podemos
+                 analizar y resolver problemas computacionales. Su importancia 
+                 no consiste en ser siempre la opción más rápida, sino en
+                  permitirnos construir soluciones claras y adecuadas 
+                  cuando el problema tiene una naturaleza recursiva.
+            </p>
+
+            
+        </section>
+<section id="referencias">
+    <h2>Referencias</h2>
+
+    <div class="tarjeta">
+
+        <p>
+            [1] Runestone Academy, “¿Qué es la recursividad?”
+            [título traducido],
+            <em>Resolución de problemas con algoritmos y estructuras
+            de datos</em>, 3.ª ed. [En línea]. Disponible:
+            <a
+                href="https://runestone.academy/ns/books/published/pythonds3/Recursion/WhatIsRecursion.html"
+                target="_blank"
+                rel="noopener noreferrer">
+                https://runestone.academy/ns/books/published/pythonds3/Recursion/WhatIsRecursion.html
+            </a>.
+            [Consultado: 5 de octubre de 2026].
+        </p>
+
+        <p>
+            [2] Runestone Academy, “Las tres leyes de la recursividad”
+            [título traducido],
+            <em>Resolución de problemas con algoritmos y estructuras
+            de datos</em>, 3.ª ed. [En línea]. Disponible:
+            <a
+                href="https://runestone.academy/ns/books/published/pythonds3/Recursion/TheThreeLawsofRecursion.html"
+                target="_blank"
+                rel="noopener noreferrer">
+                https://runestone.academy/ns/books/published/pythonds3/Recursion/TheThreeLawsofRecursion.html
+            </a>.
+            [Consultado: 5 de octubre de 2026].
+        </p>
+
+        <p>
+            [3] Instituto Tecnológico de Massachusetts,
+            “Lectura 10: Recursividad” [título traducido],
+            <em>Curso 6.005: Construcción de software</em>,
+            2016. [En línea]. Disponible:
+            <a
+                href="https://ocw.mit.edu/ans7870/6/6.005/s16/classes/10-recursion/index.html"
+                target="_blank"
+                rel="noopener noreferrer">
+                https://ocw.mit.edu/ans7870/6/6.005/s16/classes/10-recursion/index.html
+            </a>.
+            [Consultado: 5 de octubre de 2026].
+        </p>
+
+        <p>
+            [4] Universidad de Stanford,
+            “Notación O grande y recursividad” [título traducido],
+            <em>Curso CS106B</em>, 2025.
+            [En línea]. Disponible:
+            <a
+                href="https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1258/section/section3/"
+                target="_blank"
+                rel="noopener noreferrer">
+                https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1258/section/section3/
+            </a>.
+            [Consultado: 5 de octubre de 2026].
+        </p>
+
+        <p>
+            [5] Runestone Academy, “Triángulo de Sierpinski”
+            [título traducido],
+            <em>Resolución de problemas con algoritmos y estructuras
+            de datos</em>, 3.ª ed. [En línea]. Disponible:
+            <a
+                href="https://runestone.academy/ns/books/published/pythonds3/Recursion/SierpinskiTriangle.html"
+                target="_blank"
+                rel="noopener noreferrer">
+                https://runestone.academy/ns/books/published/pythonds3/Recursion/SierpinskiTriangle.html
+            </a>.
+            [Consultado: 5 de octubre de 2026].
+        </p>
+
+        <p>
+            [6] Universidad de Princeton, “2.3 Recursividad”
+            [título traducido],
+            <em>Introducción a la programación en Java</em>.
+            [En línea]. Disponible:
+            <a
+                href="https://introcs.cs.princeton.edu/java/23recursion/"
+                target="_blank"
+                rel="noopener noreferrer">
+                https://introcs.cs.princeton.edu/java/23recursion/
+            </a>.
+            [Consultado: 5 de octubre de 2026].
+        </p>
+
+        <p>
+            [7] Runestone Academy, “Torres de Hanói”
+            [título traducido],
+            <em>Resolución de problemas con algoritmos y estructuras
+            de datos</em>, 3.ª ed. [En línea]. Disponible:
+            <a
+                href="https://runestone.academy/ns/books/published/pythonds3/Recursion/TowerofHanoi.html"
+                target="_blank"
+                rel="noopener noreferrer">
+                https://runestone.academy/ns/books/published/pythonds3/Recursion/TowerofHanoi.html
+            </a>.
+            [Consultado: 5 de octubre de 2026].
+        </p>
+
+        <p>
+            [8] Runestone Academy,
+            “Marcos de pila: Implementación de la recursividad”
+            [título traducido],
+            <em>Resolución de problemas con algoritmos y estructuras
+            de datos</em>, 3.ª ed. [En línea]. Disponible:
+            <a
+                href="https://runestone.academy/ns/books/published/pythonds3/Recursion/StackFramesImplementingRecursion.html"
+                target="_blank"
+                rel="noopener noreferrer">
+                https://runestone.academy/ns/books/published/pythonds3/Recursion/StackFramesImplementingRecursion.html
+            </a>.
+            [Consultado: 5 de octubre de 2026].
+        </p>
+
+    </div>
+</section>
+    </main>
+
+    <footer>
+        <p>
+            Recursividad y sus aplicaciones ·
+            Proyecto 06 de octubre del 2026
+        </p>
+
+        <a href="#inicio">Volver al inicio </a>
+    </footer>
+
+</body>
+</html>
